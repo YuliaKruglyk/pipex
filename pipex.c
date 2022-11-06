@@ -143,7 +143,8 @@ int main(int ac, char **av, char **env)
 	{	
 		pfd[0] = ft_open(av[1], 0);
 		pfd[1] = ft_open(av[4], 1);
-		
+		dup2(pfd[0], STDIN_FILENO);
+		dup2(pfd[1], STDOUT_FILENO);
 		pipe(pfd);
 		pid1 = fork();
 		if(pid1 == 0)
