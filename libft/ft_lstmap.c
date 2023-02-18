@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 09:26:20 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/11/09 09:31:25 by ykruhlyk         ###   ########.fr       */
+/*   Created: 2022/05/09 19:56:13 by ykruhlyk          #+#    #+#             */
+/*   Updated: 2022/05/09 20:39:17 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <sys/wait.h>
-# include "libft/libft.h"
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*lst1;
+	t_list	*new;
 
-int		find_colon(char *str, char c);
-char	*command_path(char *cmd, char **env);
-char	*ft_path(char *cmd, char **env);
-
-#endif
+	lst1 = NULL;
+	while (lst)
+	{	
+		new = ft_lstnew(f(lst -> content));
+		if (!new)
+		{
+			ft_lstclear(&lst1, del);
+			return (lst1);
+		}
+		ft_lstadd_back(&lst1, new);
+		lst = lst -> next;
+	}
+	return (lst1);
+}

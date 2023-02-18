@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 09:26:20 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/11/09 09:31:25 by ykruhlyk         ###   ########.fr       */
+/*   Created: 2022/04/25 18:28:35 by ykruhlyk          #+#    #+#             */
+/*   Updated: 2022/05/01 17:39:31 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <sys/wait.h>
-# include "libft/libft.h"
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-int		find_colon(char *str, char c);
-char	*command_path(char *cmd, char **env);
-char	*ft_path(char *cmd, char **env);
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

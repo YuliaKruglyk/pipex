@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 09:26:20 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/11/09 09:31:25 by ykruhlyk         ###   ########.fr       */
+/*   Created: 2022/04/25 15:29:25 by ykruhlyk          #+#    #+#             */
+/*   Updated: 2022/05/04 17:30:49 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <sys/wait.h>
-# include "libft/libft.h"
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
-int		find_colon(char *str, char c);
-char	*command_path(char *cmd, char **env);
-char	*ft_path(char *cmd, char **env);
-
-#endif
+// int	main(void)
+// {
+// 	char	r = '9';
+// 	if((ft_isdigit(r)) == 1)
+// 		printf("1");
+// 	else
+// 		printf("0");
+// }

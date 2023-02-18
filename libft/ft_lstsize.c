@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 09:26:20 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/11/09 09:31:25 by ykruhlyk         ###   ########.fr       */
+/*   Created: 2022/05/09 11:55:25 by ykruhlyk          #+#    #+#             */
+/*   Updated: 2022/05/09 15:13:09 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <sys/wait.h>
-# include "libft/libft.h"
+int	ft_lstsize(t_list *lst)
+{
+	int	count;
 
-int		find_colon(char *str, char c);
-char	*command_path(char *cmd, char **env);
-char	*ft_path(char *cmd, char **env);
-
-#endif
+	count = 0;
+	while (lst)
+	{	
+		lst = lst -> next;
+		count++;
+	}	
+	return (count);
+}

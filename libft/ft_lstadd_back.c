@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 09:26:20 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/11/09 09:31:25 by ykruhlyk         ###   ########.fr       */
+/*   Created: 2022/05/09 15:39:29 by ykruhlyk          #+#    #+#             */
+/*   Updated: 2022/05/09 15:58:58 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <sys/wait.h>
-# include "libft/libft.h"
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{	
+	t_list	*temp;
 
-int		find_colon(char *str, char c);
-char	*command_path(char *cmd, char **env);
-char	*ft_path(char *cmd, char **env);
-
-#endif
+	temp = *lst;
+	if (!temp)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = ft_lstlast(temp);
+	temp -> next = new;
+}
