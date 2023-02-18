@@ -21,7 +21,7 @@ The idea of the program is that we take an infile and two commands, and pass the
 * ``>``: Redirects whatever is on the standard output (stdout) into a file, creating it if it does not exist
 * ``file2``: Path to an output file which may or may not exist. If it exists, it will be truncated (emptied) and should be opened write-only
 
-## The Pipex Algorithm
+## How to Run
 
 Our own implementation of the previous command will have a similar look. We will compile an executable called ``pipex``, which will only accept 4 commands in the mandatory part. This is what it expects to receive:
 
